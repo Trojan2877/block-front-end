@@ -19,8 +19,7 @@ class BlockController {
 
   async createBlock(blockData) {
     try {
-      const createdBlock = await this.apiService.createBlock(blockData);
-      return new BlockModel(createdBlock.id, createdBlock.block, createdBlock.nextBlock);
+      await this.apiService.createBlock(blockData);
     } catch (error) {
       console.error('Error creating block:', error);
       throw error;
@@ -29,8 +28,7 @@ class BlockController {
 
   async updateBlock(oldBlock, newBlock) {
     try {
-      const updatedBlock = await this.apiService.updateBlock(oldBlock, newBlock);
-      return new BlockModel(updatedBlock.id, updatedBlock.block, updatedBlock.nextBlock);
+      await this.apiService.updateBlock(oldBlock, newBlock);
     } catch (error) {
       console.error('Error updating block:', error);
       throw error;

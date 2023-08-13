@@ -8,4 +8,3 @@ class BlockModel {
   }
   
   export default BlockModel;
-  

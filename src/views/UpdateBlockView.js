@@ -1,10 +1,11 @@
-// views/UpdateBlockView.js
 import React, { useState } from 'react';
 import BlockController from '../controllers/BlockController';
 
 function UpdateBlockView() {
   const [oldBlock, setOldBlock] = useState('');
   const [newBlock, setNewBlock] = useState('');
+  const [message, setMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(true);
   const blockController = new BlockController();
 
   async function handleUpdateBlock(event) {
@@ -12,11 +13,17 @@ function UpdateBlockView() {
     try {
       const updatedBlock = await blockController.updateBlock(oldBlock, newBlock);
       console.log('Block updated:', updatedBlock);
+      setMessage('Block updated successfully');
+      setIsSuccess(true);
       setOldBlock('');
+      setNewBlock('');
       // Handle success message or navigation
     } catch (error) {
       console.error('Error updating block:', error);
+      setMessage('Block update failed');
+      setIsSuccess(false);
       setOldBlock('');
+      setNewBlock('');
       // Handle error message
     }
   }
@@ -39,6 +46,9 @@ function UpdateBlockView() {
         />
         <button type="submit">Update Block</button>
       </form>
+      {message && (
+        <p style={{ color: isSuccess ? 'green' : 'red' }}>{message}</p>
+      )}
     </div>
   );
 }

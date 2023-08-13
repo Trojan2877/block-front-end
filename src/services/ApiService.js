@@ -1,4 +1,3 @@
-// services/APIService.js
 class APIService {
   constructor() {
     this.baseUrl = 'http://localhost:8081'; // Replace with your actual backend URL
@@ -24,8 +23,11 @@ class APIService {
         },
         body: JSON.stringify(blockData)
       });
-      const data = await response.json();
-      return data;
+      if (response.status === 200) {
+        console.log('Block created successfully');
+      } else {
+        throw new Error('Block creation failed');
+      }
     } catch (error) {
       console.error('Error creating block:', error);
       throw error;
@@ -40,8 +42,11 @@ class APIService {
           'Content-Type': 'application/json'
         },
       });
-      const data = await response.json();
-      return data;
+      if (response.status === 200) {
+        console.log('Block updated successfully');
+      } else {
+        throw new Error('Block update failed');
+      }
     } catch (error) {
       console.error('Error updating block:', error);
       throw error;

@@ -3,6 +3,8 @@ import BlockController from '../controllers/BlockController';
 
 function CreateBlockView() {
   const [blockData, setBlockData] = useState({ thisBlock: '', nextBlock: '' });
+  const [message, setMessage] = useState('');
+  const [isSuccess, setIsSuccess] = useState(true);
   const blockController = new BlockController();
 
   async function handleCreateBlock(event) {
@@ -11,14 +13,15 @@ function CreateBlockView() {
       const createdBlock = await blockController.createBlock(blockData);
       console.log('Block created:', createdBlock);
       
-      // Clear the input text fields after successful creation
       setBlockData({ thisBlock: '', nextBlock: '' });
+      setMessage('Block created successfully');
+      setIsSuccess(true);
       
-      // Handle success message or navigation
     } catch (error) {
       console.error('Error creating block:', error);
       setBlockData({ thisBlock: '', nextBlock: '' });
-      // Handle error message
+      setMessage('Block creation failed');
+      setIsSuccess(false);
     }
   }
 
@@ -40,6 +43,9 @@ function CreateBlockView() {
         />
         <button type="submit">Create Block</button>
       </form>
+      {message && (
+        <p style={{ color: isSuccess ? 'green' : 'red' }}>{message}</p>
+      )}
     </div>
   );
 }
