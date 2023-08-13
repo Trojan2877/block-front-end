@@ -6,17 +6,18 @@ body {
   background-image: url('/src/images/Ethereum\ Blockchain\ Illustration.png');
   background-size: cover;
   background-position: center;
-  color: #7a83e5;
+  color: #f5f5f5;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .app-container {
-  width: 100%;
-  padding: 25px;
-  background-color: rgba(39, 44, 50, 0.7); /* Adjust the alpha value */
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1); /* Adjust the alpha value */
   border-radius: 12px;
   backdrop-filter: blur(10px);
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8);
@@ -27,23 +28,22 @@ header {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  height: 60px; 
 }
 
 header h1 {
-  color: #7a83e5;
+  color: #eaeff5;
   font-size: 28px;
   margin: 0;
 }
 
 header p {
   font-size: 16px;
-  color: #ccc;
+  color: #aaa;
   margin: 0;
 }
 
 nav {
-  background-color: #272c32;
+  background-color: #2d333b;
   padding: 10px 0;
   border-radius: 8px;
 }
@@ -57,6 +57,7 @@ nav ul {
 
 nav li {
   margin-right: 20px;
+  margin-left: 20px;
 }
 
 nav a {
@@ -87,20 +88,20 @@ input[type='text'] {
   border: none;
   border-radius: 6px;
   margin-bottom: 15px;
-  background-color: #272c32;
+  background-color: #2d333b;
   color: #f5f5f5;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 input[type='text']:focus {
-  background-color: #1f242a;
+  background-color: #272c32;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 button {
-  padding: 10px 20px;
-  background-color: #7a83e5;
+  padding: 20px 20px;
+  background-color: #7b4ad5;
   color: #f5f5f5;
   border: none;
   border-radius: 4px;
@@ -115,18 +116,31 @@ button:hover {
 ul {
   list-style: none;
   padding: 0;
+  max-height: 60vh; /* Set a maximum height for the list */
+  overflow-y: auto; /* Enable vertical scrolling if needed */
+  
 }
 
 li {
   margin-bottom: 10px;
   padding: 10px;
-  background-color: #1f242a;
+  background-color: #363b47;
   border-radius: 8px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
   color: #f5f5f5;
+  border-radius: 12px;
+  backdrop-filter: blur(40px);
 }
 
 h2 {
-  margin-top: 0;
+  margin-top: 10;
   color: #e7f3ff;
+}
+
+.authored-by {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 12px;
+  color: #888;
 }
