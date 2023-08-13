@@ -3,22 +3,49 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #000;
-  color: #fff;
+  background-image: url('/src/images/Ethereum\ Blockchain\ Illustration.png');
+  background-size: cover;
+  background-position: center;
+  color: #7a83e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .app-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #1e1e1e;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  width: 100%;
+  padding: 25px;
+  background-color: rgba(39, 44, 50, 0.7); /* Adjust the alpha value */
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 60px; 
+}
+
+header h1 {
+  color: #7a83e5;
+  font-size: 28px;
+  margin: 0;
+}
+
+header p {
+  font-size: 16px;
+  color: #ccc;
+  margin: 0;
 }
 
 nav {
-  background-color: #222;
+  background-color: #272c32;
   padding: 10px 0;
+  border-radius: 8px;
 }
 
 nav ul {
@@ -34,13 +61,13 @@ nav li {
 
 nav a {
   text-decoration: none;
-  color: #fff;
+  color: #f5f5f5;
   font-weight: bold;
   transition: color 0.3s;
 }
 
 nav a:hover {
-  color: #007bff;
+  color: #d2e0ef;
 }
 
 form {
@@ -52,27 +79,29 @@ form {
 label {
   margin-bottom: 8px;
   font-weight: bold;
-  color: #fff;
+  color: #f5f5f5;
 }
 
 input[type='text'] {
   padding: 10px;
-  border: 1px solid #444;
-  border-radius: 4px;
+  border: none;
+  border-radius: 6px;
   margin-bottom: 15px;
-  background-color: #333;
-  color: #fff;
-  transition: border-color 0.3s;
+  background-color: #272c32;
+  color: #f5f5f5;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 input[type='text']:focus {
-  border-color: #007bff;
+  background-color: #1f242a;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 button {
   padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  background-color: #7a83e5;
+  color: #f5f5f5;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -80,7 +109,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #bbd4ef;
 }
 
 ul {
@@ -91,12 +120,13 @@ ul {
 li {
   margin-bottom: 10px;
   padding: 10px;
-  background-color: #333;
-  border-radius: 4px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  color: #fff;
+  background-color: #1f242a;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  color: #f5f5f5;
 }
 
 h2 {
   margin-top: 0;
+  color: #e7f3ff;
 }

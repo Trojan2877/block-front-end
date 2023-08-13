@@ -10,6 +10,9 @@ function App() {
   return (
     <Router>
       <div className="app-container">
+        <header className="App-header">
+          <h1 style={{ color: '#007bff', marginBottom: '20px' }}>BlockChain 1.0</h1>
+        </header>
         <nav>
           <ul>
             <li><Link to="/">Block List</Link></li>
@@ -27,6 +30,10 @@ function App() {
           {/* Add a default route in case no valid routes match */}
           <Route path="*" component={() => <div>404 Not Found</div>} />
         </Switch>
+
+        <div style={{ position: 'absolute', bottom: 0, right: 0, padding: '10px', color: '#fff' }}>
+          Authored by TROJAN
+        </div>
       </div>
     </Router>
   );
