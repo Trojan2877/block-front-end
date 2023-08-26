@@ -1,18 +1,21 @@
+// views/BlockListView.js
 import React, { useState, useEffect } from 'react';
-import ApiService from '../services/ApiService';
+import BlockController from '../controllers/BlockController';
 
-function BlockList() {
+function BlockListView() {
   const [blocks, setBlocks] = useState([]);
+  const blockController = new BlockController();
 
   useEffect(() => {
     async function fetchBlocks() {
       try {
-        const fetchedBlocks = await ApiService.get('http://localhost:8081/block');
+        const fetchedBlocks = await blockController.getBlocks();
         setBlocks(fetchedBlocks);
       } catch (error) {
         console.error('Error fetching blocks:', error);
       }
     }
+
     fetchBlocks();
   }, []);
 
@@ -22,7 +25,9 @@ function BlockList() {
       <ul>
         {blocks.map(block => (
           <li key={block.id}>
-            <strong>Block:</strong> {block.block}, <strong>Next Block:</strong> {block.nextBlock}
+            <p>ID: {block.id}</p>
+            <p>Block: {block.block}</p>
+            <p>Next Block: {block.nextBlock}</p>
           </li>
         ))}
       </ul>
@@ -30,4 +35,4 @@ function BlockList() {
   );
 }
 
-export default BlockList;
+export default BlockListView;

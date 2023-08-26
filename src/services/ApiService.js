@@ -1,48 +1,73 @@
-const ApiService = {
-    get: async (url, headers = {}) => {
-      const response = await fetch(url, {
-        method: 'GET',
-        headers,
-      });
+class APIService {
+  constructor() {
+    this.baseUrl = 'http://localhost:8081'; // Replace with your actual backend URL
+  }
+
+  async getBlocks() {
+    try {
+      const response = await fetch(`${this.baseUrl}/block`);
       const data = await response.json();
       return data;
-    },
-  
-    post: async (url, data, headers = {}) => {
-      const response = await fetch(url, {
+    } catch (error) {
+      console.error('Error fetching blocks:', error);
+      throw error;
+    }
+  }
+
+  async createBlock(blockData) {
+    try {
+      const response = await fetch(`${this.baseUrl}/block/create`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          ...headers,
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(blockData)
       });
-      const responseData = await response.json();
-      return responseData;
-    },
-  
-    put: async (url, data, headers = {}) => {
-      const response = await fetch(url, {
+      if (response.status === 200) {
+        console.log('Block created successfully');
+      } else {
+        throw new Error('Block creation failed');
+      }
+    } catch (error) {
+      console.error('Error creating block:', error);
+      throw error;
+    }
+  }
+
+  async updateBlock(oldBlock, newBlock) {
+    try {
+      const response = await fetch(`${this.baseUrl}/block/update/${oldBlock}?newBlock=${newBlock}`, {
         method: 'PUT',
         headers: {
-          'Content-Type': 'application/json',
-          ...headers,
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data),
       });
-      const responseData = await response.json();
-      return responseData;
-    },
-  
-    delete: async (url, headers = {}) => {
-      const response = await fetch(url, {
-        method: 'DELETE',
-        headers,
+      if (response.status === 200) {
+        console.log('Block updated successfully');
+      } else {
+        throw new Error('Block update failed');
+      }
+    } catch (error) {
+      console.error('Error updating block:', error);
+      throw error;
+    }
+  }
+
+  async deleteBlock(block) {
+    try {
+      const response = await fetch(`${this.baseUrl}/block?block=${block}`, {
+        method: 'DELETE'
       });
-      const data = await response.json();
-      return data;
-    },
-  };
-  
-  export default ApiService;
-  
+      if (response.status === 200) {
+        console.log('Block deleted successfully');
+      } else {
+        throw new Error('Block deletion failed');
+      }
+    } catch (error) {
+      console.error('Error deleting block:', error);
+      throw error;
+    }
+  }
+}
+
+export default APIService;
