@@ -12,7 +12,7 @@ ReactDOM.render(
     <Router>
       <div className="app-container">
         <header className="App-header">
-          <h1 style={{ color: '#007bff', marginBottom: '20px' }}>BlockChain 1.0</h1>
+          <h1 style={{marginBottom: '20px' }}>BlockChain 1.0</h1>
         </header>
         <nav>
           <ul>
